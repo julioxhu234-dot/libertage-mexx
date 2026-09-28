@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Libertage Fashion × Mexx — Confecciones de salud desde Huancayo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#FAFAF7; --bg-panel:#EFF3F1; --ink:#17211F; --dim:#55635F;
+    --teal:#0E6B63; --teal-dk:#0A4F49; --wine:#7C2D3A; --ochre:#B97A22;
+    --line:#E1E4DE; --white:#FFFFFF;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#FAFAF7; --bg-panel:#EFF3F1; --ink:#17211F; --dim:#55635F; }
+  }
+  :root[data-theme="dark"] { --bg:#FAFAF7; --bg-panel:#EFF3F1; --ink:#17211F; --dim:#55635F; }
+
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.55; }
+  h1,h2,h3,.disp { font-family:'Archivo',sans-serif; }
+  .wrap { max-width:1160px; margin:0 auto; padding:0 28px; }
+  a { color:inherit; }
+  img,svg { max-width:100%; display:block; }
+
+  nav { border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:10; }
+  .nav-in { max-width:1160px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .lockup { display:flex; align-items:baseline; gap:8px; font-family:'Archivo',sans-serif; font-weight:700; font-size:1.05rem; }
+  .lockup .x { color:var(--dim); font-weight:500; font-size:.85rem; }
+  .lockup .m { color:var(--wine); }
+  .loc-tag { font-size:.72rem; color:var(--dim); font-weight:500; margin-top:1px; }
+  .nav-links { display:flex; gap:22px; font-size:.9rem; font-weight:600; }
+  .nav-links a { text-decoration:none; }
+  .btn-wa { background:#25D366; color:#0B3D1F; font-weight:700; padding:9px 16px; border-radius:8px; text-decoration:none; font-size:.86rem; white-space:nowrap; }
+
+  section { padding:64px 0; }
+  .head { max-width:58ch; margin-bottom:34px; }
+  .head h2 { font-size:clamp(1.5rem,2.6vw,2.1rem); font-weight:700; margin:0 0 10px; }
+  .head p { color:var(--dim); font-size:1rem; margin:0; max-width:60ch; }
+
+  /* HERO */
+  .hero { padding:56px 0 64px; }
+  .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:46px; align-items:center; }
+  .hero h1 { font-size:clamp(2rem,3.6vw,2.85rem); font-weight:800; line-height:1.12; letter-spacing:-.01em; margin:0 0 18px; }
+  .hero p.lead { color:var(--dim); font-size:1.06rem; max-width:48ch; margin:0 0 28px; }
+  .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn-primary { background:var(--teal); color:#fff; border:none; padding:13px 22px; border-radius:9px; font-weight:700; font-size:.95rem; text-decoration:none; cursor:pointer; }
+  .btn-primary:hover { background:var(--teal-dk); }
+  .btn-ghost { border:1.5px solid var(--ink); color:var(--ink); padding:13px 22px; border-radius:9px; font-weight:700; font-size:.95rem; text-decoration:none; }
+
+  /* BRANDS */
+  .brands { background:var(--bg-panel); }
+  .brand-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .brand-card { background:var(--bg); padding:28px 26px; }
+  .brand-card h3 { margin:0 0 8px; font-size:1.15rem; }
+  .brand-card .tag { display:inline-block; font-size:.78rem; font-weight:700; padding:4px 10px; border-radius:20px; margin-bottom:12px; }
+  .tag-lib { background:#F3E4E8; color:var(--wine); }
+  .tag-mexx { background:#E4EFEC; color:var(--teal-dk); }
+  .brand-card p { color:var(--dim); font-size:.92rem; margin:0; }
+
+  /* PRECIO */
+  .price-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .price-card { background:#fff; padding:26px 24px; border-top:3px solid var(--line); }
+  .price-card.highlight { border-top-color:var(--teal); }
+  .price-label { font-weight:700; font-size:.95rem; margin-bottom:8px; }
+  .price-card.muted { background:var(--bg-panel); }
+  .price-card.muted .price-label { color:var(--dim); }
+  .price-card.highlight .price-label { color:var(--teal-dk); }
+  .price-card p { margin:0; font-size:.92rem; color:var(--dim); }
+  .price-card.highlight p { color:var(--ink); }
+  .price-note { margin-top:16px; font-size:.9rem; color:var(--dim); }
+
+  /* CATALOGO */
+  .filter-row { display:flex; gap:9px; flex-wrap:wrap; margin-bottom:28px; }
+  .chip { border:1.5px solid var(--line); background:#fff; color:var(--ink); padding:7px 15px; border-radius:20px; font-size:.85rem; font-weight:600; cursor:pointer; }
+  .chip.active { border-color:var(--ink); background:var(--ink); color:#fff; }
+  .cat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .item { border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff; transition:opacity .2s; }
+  .item.hidden { display:none; }
+  .item-top { height:84px; display:flex; align-items:center; justify-content:center; }
+  .item-top.lib { background:#F3E4E8; }
+  .item-top.mexx { background:#E4EFEC; }
+  .item-body { padding:16px; }
+  .item-brand { font-size:.72rem; font-weight:700; letter-spacing:.02em; }
+  .item-brand.lib { color:var(--wine); }
+  .item-brand.mexx { color:var(--teal-dk); }
+  .item-name { font-weight:700; font-size:.95rem; margin:4px 0 2px; }
+  .item-spec { font-size:.78rem; color:var(--dim); margin-bottom:10px; }
+  .item-price { font-weight:800; font-size:1.05rem; margin-bottom:10px; }
+  .item-btn { display:block; text-align:center; border:1.5px solid var(--ink); border-radius:8px; padding:8px; font-size:.82rem; font-weight:700; text-decoration:none; color:var(--ink); }
+  .item-btn:hover { background:var(--ink); color:#fff; }
+
+  /* COBERTURA */
+  .cov-table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  .cov-table th { text-align:left; padding:10px 14px; border-bottom:2px solid var(--ink); font-size:.78rem; font-weight:700; }
+  .cov-table td { padding:12px 14px; border-bottom:1px solid var(--line); }
+  .badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:.76rem; font-weight:700; }
+  .badge-shalom { background:#FDE7D2; color:#8A4B12; }
+  .badge-olva { background:#DCEAFB; color:#164A85; }
+  .badge-local { background:#E4EFEC; color:var(--teal-dk); }
+
+  /* PRODUCCION */
+  .prod-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; }
+  .prod-item { border-top:2px solid var(--ink); padding-top:14px; }
+  .prod-item h3 { font-size:1rem; margin:0 0 6px; }
+  .prod-item p { font-size:.88rem; color:var(--dim); margin:0; }
+
+  /* SOCIAL */
+  .social-box { background:var(--ink); color:#fff; border-radius:18px; padding:34px 30px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+  .social-box h3 { margin:0 0 6px; font-size:1.15rem; }
+  .social-box p { margin:0; color:#B9C4C0; font-size:.9rem; }
+  .social-links { display:flex; gap:12px; }
+  .social-links a { border:1px solid #3C4B47; border-radius:8px; padding:9px 16px; font-size:.85rem; font-weight:600; text-decoration:none; }
+
+  /* CTA */
+  .cta-final { background:var(--teal); color:#fff; border-radius:20px; margin:0 20px; padding:48px 36px; text-align:center; }
+  .cta-final h2 { color:#fff; font-size:clamp(1.5rem,2.6vw,2.1rem); margin:0 0 10px; }
+  .cta-final p { color:#D6ECE8; margin:0 0 22px; }
+  .btn-cta { background:#25D366; color:#0B3D1F; border:none; padding:14px 26px; border-radius:10px; font-weight:800; font-size:.98rem; text-decoration:none; display:inline-block; }
+
+  footer { padding:36px 0 40px; }
+  .foot-in { display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:.84rem; color:var(--dim); }
+  .foot-in strong { color:var(--ink); }
+
+  @media (max-width:900px) {
+    .hero-grid { grid-template-columns:1fr; }
+    .brand-grid { grid-template-columns:1fr; }
+    .cat-grid { grid-template-columns:repeat(2,1fr); }
+    .prod-grid { grid-template-columns:1fr; }
+    .nav-links { display:none; }
+    section { padding:44px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div>
+      <div class="lockup">Libertage Fashion <span class="x">×</span> <span class="m">Mexx</span></div>
+      <div class="loc-tag">Fábrica en Huancayo, Junín</div>
+    </div>
+    <div class="nav-links"><a href="#catalogo">Catálogo</a><a href="#cobertura">Envíos</a><a href="#produccion">Institucional</a></div>
+    <a class="btn-wa" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Uniformes que aguantan tu turno completo, en cualquier parte del Perú.</h1>
+      <p class="lead">Dos marcas, una sola fábrica: Libertage Fashion en chompas y Mexx en scrubs, para enfermería, obstetricia, odontología, medicina humana, tecnología médica, psicología, veterinaria y salud en general.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#catalogo">Ver catálogo</a>
+        <a class="btn-ghost" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </div>
+    </div>
+    <svg viewBox="0 0 420 360" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="210" cy="180" r="170" fill="#EFF3F1"/>
+      <g transform="translate(70,60)">
+        <path d="M40 20 L100 20 L120 45 L100 60 L100 220 L40 220 L40 60 L20 45 Z" fill="#0E6B63"/>
+        <circle cx="70" cy="22" r="10" fill="#EFF3F1"/>
+      </g>
+      <g transform="translate(200,90)">
+        <path d="M20 0 L110 0 C118 0 124 6 124 14 L124 150 C124 158 118 164 110 164 L20 164 C12 164 6 158 6 150 L6 14 C6 6 12 0 20 0 Z" fill="#7C2D3A"/>
+        <path d="M20 0 L65 0 L55 26 L38 26 Z" fill="#EFF3F1"/>
+      </g>
+      <path d="M55 300 C110 330 300 330 360 280" fill="none" stroke="#B97A22" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<section class="brands">
+  <div class="wrap">
+    <div class="head"><h2>Dos marcas, una sola fábrica</h2><p>Producimos nosotros mismos, así que podemos sostener el precio y personalizar cada pedido.</p></div>
+    <div class="brand-grid">
+      <div class="brand-card">
+        <span class="tag tag-lib">Libertage Fashion</span>
+        <h3>Chompas para el área de salud</h3>
+        <p>Chompas clínicas y casacas de abrigo pensadas para el día a día en consultorio, hospital o posta, con corte cómodo para usar sobre el uniforme.</p>
+      </div>
+      <div class="brand-card">
+        <span class="tag tag-mexx">Mexx</span>
+        <h3>Scrubs y telas técnicas</h3>
+        <p>Conjuntos de scrub en tela antifluido y de secado rápido, por especialidad, con tallas para todo el equipo de tu institución.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="precio">
+  <div class="wrap">
+    <div class="head"><h2>Por qué cuesta menos con nosotros</h2><p>No es que vendamos menos calidad. Es que no hay nadie más ganando entre la fábrica y tú.</p></div>
+    <div class="price-grid">
+      <div class="price-card muted">
+        <div class="price-label">Comprando a un revendedor</div>
+        <p>Compra en lote a un fabricante, le suma su margen, y recién así te lo vende a ti.</p>
+      </div>
+      <div class="price-card highlight">
+        <div class="price-label">Comprando aquí</div>
+        <p>Fabricamos cada prenda en nuestro propio taller en Huancayo. Sin intermediarios de por medio: el precio que ves es precio de fábrica.</p>
+      </div>
+    </div>
+    <p class="price-note">Misma tela, mismo acabado, mismo taller que responde si algo sale mal. Lo único que cambia es cuánta gente cobra antes de que la prenda te llegue.</p>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="head"><h2>Catálogo por especialidad</h2><p>Filtra por tu área y elige el modelo; el pedido se cierra por WhatsApp para confirmar talla y color.</p></div>
+    <div class="filter-row" id="filters">
+      <button class="chip active" data-f="all">Todas</button>
+      <button class="chip" data-f="enfermeria">Enfermería</button>
+      <button class="chip" data-f="obstetricia">Obstetricia</button>
+      <button class="chip" data-f="odontologia">Odontología</button>
+      <button class="chip" data-f="medicina">Medicina Humana</button>
+      <button class="chip" data-f="tecnologia">Tecnología Médica</button>
+      <button class="chip" data-f="psicologia">Psicología</button>
+      <button class="chip" data-f="veterinaria">Veterinaria</button>
+    </div>
+    <div class="cat-grid" id="grid">
+      <div class="item" data-c="enfermeria"><div class="item-top mexx">👕</div><div class="item-body"><div class="item-brand mexx">MEXX</div><div class="item-name">Scrub Enfermería Clásico</div><div class="item-spec">Antifluido · 2 piezas</div><div class="item-price">S/ 89</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+      <div class="item" data-c="obstetricia"><div class="item-top lib">🧥</div><div class="item-body"><div class="item-brand lib">LIBERTAGE</div><div class="item-name">Chompa Obstetricia Acolchada</div><div class="item-spec">Abrigo ligero</div><div class="item-price">S/ 78</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+      <div class="item" data-c="odontologia"><div class="item-top mexx">👕</div><div class="item-body"><div class="item-brand mexx">MEXX</div><div class="item-name">Scrub Odontología Antifluido</div><div class="item-spec">Manga corta · 2 piezas</div><div class="item-price">S/ 99</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+      <div class="item" data-c="medicina"><div class="item-top mexx">👕</div><div class="item-body"><div class="item-brand mexx">MEXX</div><div class="item-name">Scrub Medicina Humana Premium</div><div class="item-spec">Tela deportiva · 2 piezas</div><div class="item-price">S/ 95</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+      <div class="item" data-c="tecnologia"><div class="item-top mexx">👕</div><div class="item-body"><div class="item-brand mexx">MEXX</div><div class="item-name">Scrub Tecnología Médica</div><div class="item-spec">Antifluido · 2 piezas</div><div class="item-price">S/ 89</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+      <div class="item" data-c="psicologia"><div class="item-top lib">🧥</div><div class="item-body"><div class="item-brand lib">LIBERTAGE</div><div class="item-name">Chompa Psicología Casual</div><div class="item-spec">Corte entallado</div><div class="item-price">S/ 70</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+      <div class="item" data-c="veterinaria"><div class="item-top mexx">👕</div><div class="item-body"><div class="item-brand mexx">MEXX</div><div class="item-name">Scrub Veterinaria Resistente</div><div class="item-spec">Tela reforzada · 2 piezas</div><div class="item-price">S/ 92</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+      <div class="item" data-c="enfermeria"><div class="item-top lib">🧥</div><div class="item-body"><div class="item-brand lib">LIBERTAGE</div><div class="item-name">Chompa Clínica Enfermería</div><div class="item-spec">Abrigo ligero</div><div class="item-price">S/ 75</div><a class="item-btn" href="https://wa.me/51969979703" target="_blank" rel="noopener">Pedir</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="cobertura" class="brands">
+  <div class="wrap">
+    <div class="head"><h2>Envíos a todo el Perú</h2><p>Trabajamos con Shalom y Olva Courier para que tu pedido llegue aunque no estés en Huancayo.</p></div>
+    <table class="cov-table">
+      <thead><tr><th>Destino</th><th>Courier</th><th>Tiempo estimado</th></tr></thead>
+      <tbody>
+        <tr><td>Huancayo y Junín</td><td><span class="badge badge-local">Entrega local</span></td><td>24 horas</td></tr>
+        <tr><td>Lima y Callao</td><td><span class="badge badge-shalom">Shalom</span> <span class="badge badge-olva">Olva</span></td><td>1 a 2 días</td></tr>
+        <tr><td>Arequipa</td><td><span class="badge badge-shalom">Shalom</span></td><td>2 a 3 días</td></tr>
+        <tr><td>Cusco</td><td><span class="badge badge-olva">Olva</span></td><td>2 a 3 días</td></tr>
+        <tr><td>Trujillo</td><td><span class="badge badge-shalom">Shalom</span></td><td>2 a 3 días</td></tr>
+        <tr><td>Otras regiones del Perú</td><td><span class="badge badge-shalom">Shalom</span> <span class="badge badge-olva">Olva</span></td><td>Según destino, te lo confirmamos por WhatsApp</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="produccion">
+  <div class="wrap">
+    <div class="head"><h2>¿Compras para tu institución?</h2><p>Si necesitas uniformes para todo un salón, promoción o área de tu institución, esto es para ti.</p></div>
+    <div class="prod-grid">
+      <div class="prod-item"><h3>Fabricación propia</h3><p>Producimos en nuestro propio taller en Huancayo, sin intermediarios, así que podemos ajustar precio y plazo en pedidos grandes.</p></div>
+      <div class="prod-item"><h3>Personalización</h3><p>Bordado con tu nombre, institución o promoción en chompas y scrubs, ideal para ceremonias como la bata blanca.</p></div>
+      <div class="prod-item"><h3>Pedidos por volumen</h3><p>Cotizamos distinto cuando el pedido es para un grupo completo. Escríbenos con la cantidad y las tallas que necesitas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="social-box">
+      <div><h3>Síguenos en TikTok</h3><p>Ahí mostramos el proceso de confección y las prendas nuevas antes que nadie.</p></div>
+      <div class="social-links"><a href="https://www.tiktok.com/@MexxUniformes" target="_blank" rel="noopener">TikTok @MexxUniformes</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-final">
+      <h2>Cuéntanos qué prenda necesitas</h2>
+      <p>Te respondemos con modelos, tallas disponibles y el costo de envío a tu ciudad.</p>
+      <a class="btn-cta" href="https://wa.me/51969979703" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span><strong>Libertage Fashion × Mexx</strong> — Confecciones de salud, Huancayo, Junín, Perú.</span>
+    <span>WhatsApp: 969 979 703 · TikTok @MexxUniformes</span>
+  </div>
+</footer>
+
+<script>
+  var chips = document.querySelectorAll('#filters .chip');
+  var items = document.querySelectorAll('#grid .item');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){x.classList.remove('active');});
+      c.classList.add('active');
+      var f = c.getAttribute('data-f');
+      items.forEach(function(it){
+        it.classList.toggle('hidden', f !== 'all' && it.getAttribute('data-c') !== f);
+      });
+    });
+  });
+</script>
+</body>
+</html>
